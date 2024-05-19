@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Вход для администратора</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #48b8af;
+            font-weight: bold;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #48b8af;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #b689b9;
+        }
+        .error {
+            color: #e74c3c;
+        }
+        .logout {
+            margin-top: 10px; /* изменено с 20px на 10px */
+        }
+    </style>
+</head>
+<body>
+    <h2>Вход для администратора</h2>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        <label for="username">Имя пользователя:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Пароль:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Войти">
+        <br> <!-- добавлен перевод строки -->
+        <input type="submit" value="Выход" formaction="/logout" class="logout"> <!-- изменена кнопка на input и добавлено formaction -->
+    </form>
+</body>
+</html>

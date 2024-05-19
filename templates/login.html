@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Вход</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Verdana, Geneva, sans-serif; /* Изменен шрифт */
+            text-align: center;
+            padding-top: 100px;
+            background-color: #f9f9f9; /* Изменен цвет фона */
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            border: 1px solid #ddd; /* Изменен цвет границы */
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"],
+        button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+            font-size: 16px; /* Добавлено указание размера шрифта */
+        }
+        input[type="submit"],
+        button {
+            background-color: #48b8af; /* Изменен цвет фона */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover,
+        button:hover {
+            background-color: #b689b9; /* Изменен цвет фона при наведении */
+        }
+        h2 {
+            color: #48b8af; /* Изменен цвет заголовка */
+            font-weight: bold;
+        }
+        p {
+            color: #666; /* Изменен цвет текста */
+            margin-top: 20px;
+        }
+        label {
+            color: #555; /* Изменен цвет текста меток */
+        }
+        a {
+            color: #b689b9; /* Изменен цвет ссылки */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: #e74c3c;
+        }
+        .admin-login {
+            position: fixed;
+            left: 10px;
+            bottom: 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Вход</h2>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        <label for="username">Имя пользователя:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Пароль:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Войти">
+        <button type="button" onclick="window.location.href='/register';">Регистрация</button>
+    </form>
+    <a href="/admin-login" class="admin-login">Войти как админ</a>
+</body>
+</html>

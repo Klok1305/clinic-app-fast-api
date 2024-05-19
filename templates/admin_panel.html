@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .logout-btn {
+            margin-top: 30px;
+            background-color: #48b8af;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .logout-btn:hover {
+            background-color: #b689b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+
+    <h2>Appointments</h2>
+    <table>
+        <tr>
+            {% for column in appointment_columns %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in appointments %}
+        <tr>
+            {% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Analyses</h2>
+    <table>
+        <tr>
+            {% for column in analysis_columns %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in analyses %}
+        <tr>
+            {% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Past Appointments</h2>
+    <table>
+        <tr>
+            {% for column in past_appointment_columns %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in past_appointments %}
+        <tr>
+            {% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Surveys</h2>
+    <table>
+        <tr>
+            {% for column in survey_columns %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in surveys %}
+        <tr>
+            {% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/" class="logout-btn">Выход</a>
+</body>
+</html>

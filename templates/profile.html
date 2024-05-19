@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-right: 20px;
+        }
+        .header h2 {
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: bold;
+        }
+        .about-me {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .about-me h3 {
+            margin-bottom: 10px;
+            color: #b689b9;
+            font-weight: bold;
+        }
+        .contact-links a {
+            margin-right: 10px;
+            font-size: 24px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .contact-links a:hover {
+            opacity: 0.7;
+        }
+        .logout-btn {
+            background-color: #48b8af;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .logout-btn:hover {
+            background-color: #b689b9;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 600px;
+        }
+        .block {
+            flex-basis: calc(50% - 10px);
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .block h3 {
+            margin-bottom: 10px;
+            color: #b689b9;
+            font-weight: bold;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            background-color: #f0f0f0;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .inner-card {
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        .inner-card:last-child {
+            border-bottom: none;
+        }
+        .inner-card i {
+            font-size: 24px;
+            color: #666;
+            margin-right: 10px;
+        }
+        .inner-card p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .inner-card a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        .inner-card button {
+            border: none;
+            background-color: #48b8af;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .inner-card button:hover {
+            background-color: #b689b9;
+        }
+        .vertical-line {
+            border-left: 2px solid #ccc;
+            height: 100%;
+            margin: 0 20px;
+        }
+        
+        .contact-links a i {
+            color: #48b8af !important;
+        }
+        .contact-links a:hover i {
+            color: #b689b9 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Здравствуйте, {{ username }}!</h2>
+        </div>
+        <div class="about-me">
+            {% if next_appointment %}
+                <h3>Ближайший прием: {{ next_appointment[0] }} - {{ next_appointment[1] }} ({{ next_appointment[2] }})</h3>
+            {% else %}
+                <h3>Нет предстоящих приемов</h3>
+            {% endif %}
+        </div>
+        <div class="contact-links">
+            <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+        <form action="/logout" method="post">
+            <button type="submit" class="logout-btn">Выйти</button>
+        </form>
+    </div>
+    <hr class="vertical-line">
+    <div class="content">
+        <div class="block">
+            <h3 style="color: #b689b9;">Ближайшие приемы</h3>
+            <div class="card">
+                {% for appointment in user_data['appointments'] %}
+                <div class="inner-card">
+                    <i class="far fa-calendar-check"></i>
+                    <p>{{ appointment[0] }}</p>
+                    <p>{{ appointment[1] }}</p>
+                    <a href="/appointment/{{ loop.index }}"><button style="background-color: #48b8af;">Перейти</button></a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="block">
+            <h3 style="color: #b689b9;">Анализы</h3>
+            <div class="card">
+                {% for analysis in user_data['analyses'] %}
+                <div class="inner-card">
+                    <i class="fas fa-flask"></i>
+                    <p>{{ analysis[0] }}</p>
+                    <p>{{ analysis[1] }}</p>
+                    <a href="/analysis/{{ loop.index }}"><button style="background-color: #48b8af;">Перейти</button></a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="block">
+            <h3 style="color: #b689b9;">Прошлые приемы</h3>
+            <div class="card">
+                {% for past_appointment in user_data['past_appointments'] %}
+                <div class="inner-card">
+                    <i class="far fa-calendar-alt"></i>
+                    <p>{{ past_appointment[0] }}</p>
+                    <p>{{ past_appointment[1] }}</p>
+                    <a href="/past_appointment/{{ loop.index }}"><button style="background-color: #48b8af;">Перейти</button></a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="block">
+            <h3 style="color: #b689b9;">Мои опросы</h3>
+            <div class="card">
+                {% for survey in user_data['surveys'] %}
+                <div class="inner-card">
+                    <i class="far fa-clipboard"></i>
+                    <p>{{ survey[0] }}</p>
+                    <p>{{ survey[1] }}</p>
+                    <a href="/survey/{{ loop.index }}"><button style="background-color: #48b8af;">Перейти</button></a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3
