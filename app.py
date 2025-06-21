@@ -67,7 +67,7 @@ async def register_post(request: Request, username: str = Form(...), password: s
     existing_user = cursor.fetchone()
     if existing_user:
         conn.close()
-        return templates.TemplateResponse("register.html", {"request": request, "error": "Пользователь с таким именем уже существует"})
+        return templates.TemplateResponse("register.html", {"request": request, "error": "A user with that name already exists"})
 
     password_hash = generate_password_hash(password)
     cursor.execute("INSERT INTO users (Login, PasswordHash) VALUES (?, ?)", (username, password_hash))

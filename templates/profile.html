@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Личный кабинет</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
@@ -136,13 +136,13 @@
 <body>
     <div class="container">
         <div class="header">
-            <h2>Здравствуйте, {{ username }}!</h2>
+            <h2>Hello, {{ username }}!</h2>
         </div>
         <div class="about-me">
             {% if next_appointment %}
-                <h3>Ближайший прием: {{ next_appointment[0] }} - {{ next_appointment[1] }} ({{ next_appointment[2] }})</h3>
+                <h3>Next appointment: {{ next_appointment[0] }} - {{ next_appointment[1] }} ({{ next_appointment[2] }})</h3>
             {% else %}
-                <h3>Нет предстоящих приемов</h3>
+                <h3>No upcoming appointments</h3>
             {% endif %}
         </div>
         <div class="contact-links">
@@ -150,59 +150,59 @@
             <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
         </div>
         <form action="/logout" method="post">
-            <button type="submit" class="logout-btn">Выйти</button>
+            <button type="submit" class="logout-btn">Logout</button>
         </form>
     </div>
     <hr class="vertical-line">
     <div class="content">
         <div class="block">
-            <h3 style="color: #b689b9;">Ближайшие приемы</h3>
+            <h3 style="color: #b689b9;">Upcoming appointments</h3>
             <div class="card">
                 {% for appointment in user_data['appointments'] %}
                 <div class="inner-card">
                     <i class="far fa-calendar-check"></i>
                     <p>{{ appointment[0] }}</p>
                     <p>{{ appointment[1] }}</p>
-                    <a href="/appointment/{{ loop.index }}"><button style="background-color: #48b8af;">Перейти</button></a>
+                    <a href="/appointment/{{ loop.index }}"><button style="background-color: #48b8af;">View</button></a>
                 </div>
                 {% endfor %}
             </div>
         </div>
         <div class="block">
-            <h3 style="color: #b689b9;">Анализы</h3>
+            <h3 style="color: #b689b9;">Analyses</h3>
             <div class="card">
                 {% for analysis in user_data['analyses'] %}
                 <div class="inner-card">
                     <i class="fas fa-flask"></i>
                     <p>{{ analysis[0] }}</p>
                     <p>{{ analysis[1] }}</p>
-                    <a href="/analysis/{{ loop.index }}"><button style="background-color: #48b8af;">Перейти</button></a>
+                    <a href="/analysis/{{ loop.index }}"><button style="background-color: #48b8af;">View</button></a>
                 </div>
                 {% endfor %}
             </div>
         </div>
         <div class="block">
-            <h3 style="color: #b689b9;">Прошлые приемы</h3>
+            <h3 style="color: #b689b9;">Past appointments</h3>
             <div class="card">
                 {% for past_appointment in user_data['past_appointments'] %}
                 <div class="inner-card">
                     <i class="far fa-calendar-alt"></i>
                     <p>{{ past_appointment[0] }}</p>
                     <p>{{ past_appointment[1] }}</p>
-                    <a href="/past_appointment/{{ loop.index }}"><button style="background-color: #48b8af;">Перейти</button></a>
+                    <a href="/past_appointment/{{ loop.index }}"><button style="background-color: #48b8af;">View</button></a>
                 </div>
                 {% endfor %}
             </div>
         </div>
         <div class="block">
-            <h3 style="color: #b689b9;">Мои опросы</h3>
+            <h3 style="color: #b689b9;">My surveys</h3>
             <div class="card">
                 {% for survey in user_data['surveys'] %}
                 <div class="inner-card">
                     <i class="far fa-clipboard"></i>
                     <p>{{ survey[0] }}</p>
                     <p>{{ survey[1] }}</p>
-                    <a href="/survey/{{ loop.index }}"><button style="background-color: #48b8af;">Перейти</button></a>
+                    <a href="/survey/{{ loop.index }}"><button style="background-color: #48b8af;">View</button></a>
                 </div>
                 {% endfor %}
             </div>

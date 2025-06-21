@@ -35,36 +35,36 @@ def add_records_to_table_app(table_name, records, user1, user2):
 
 
 appointments = [
-    {'title': 'Дерматолог', 'description': 'Врач 1', 'user': 'user1', 'visit_date': '2024-06-01 10:00', 'email' : 'm2007102@edu.misis.ru'},
-    {'title': 'Эндокринолог', 'description': 'Врач 2', 'user': 'user2', 'visit_date': '2024-06-02 11:00', 'email' : 'm2007102@edu.misis.ru'},
-    {'title': 'Психиатр', 'description': 'Врач 3', 'user': 'user2', 'visit_date': '2024-06-03 12:00', 'email' : 'm2007102@edu.misis.ru'},
-    {'title': 'Косметолог', 'description': 'Врач 4', 'user': 'user1', 'visit_date': '2024-06-04 13:00', 'email' : 'm2007102@edu.misis.ru'}
+    {'title': 'Dermatologist', 'description': 'Doctor 1', 'user': 'user1', 'visit_date': '2025-07-01 10:00', 'email': 'm2007102@edu.misis.ru'},
+    {'title': 'Endocrinologist', 'description': 'Doctor 2', 'user': 'user2', 'visit_date': '2025-07-02 11:00', 'email': 'm2007102@edu.misis.ru'},
+    {'title': 'Psychiatrist', 'description': 'Doctor 3', 'user': 'user2', 'visit_date': '2025-07-03 12:00', 'email': 'm2007102@edu.misis.ru'},
+    {'title': 'Cosmetologist', 'description': 'Doctor 4', 'user': 'user1', 'visit_date': '2025-07-04 13:00', 'email': 'm2007102@edu.misis.ru'}
 ]
 
 
 # Записи для таблицы analyses
 analyses = [
-    {'title': 'ОАК', 'description': 'Описание 1'},
-    {'title': 'УЗИ', 'description': 'Описание УЗИ'},
-    {'title': 'ТТГ', 'description': 'Описание ттг'},
-    {'title': 'Витамин D', 'description': 'Описание D'}
+    {'title': 'CBC', 'description': 'Description 1'},
+    {'title': 'Ultrasound', 'description': 'Ultrasound description'},
+    {'title': 'TSH', 'description': 'TSH description'},
+    {'title': 'Vitamin D', 'description': 'Description D'}
     # Добавьте другие записи о анализах
 ]
 
 # Записи для таблицы past_appointments
 past_appointments = [
-    {'title': 'Косметолог', 'description': 'Описание прошлого приема у косметолога'},
-    {'title': 'Психиатр', 'description': 'Описание прошлой консультации у психиатора'},
-    {'title': 'Эндокринолог', 'description': 'Описание прошлой консультации у эндокринолога'},
-    {'title': 'Дерматолог', 'description': 'Описание прошлого приема у дерматолога'}
+    {'title': 'Cosmetologist', 'description': 'Description of previous visit to cosmetologist'},
+    {'title': 'Psychiatrist', 'description': 'Description of previous consultation with psychiatrist'},
+    {'title': 'Endocrinologist', 'description': 'Description of previous consultation with endocrinologist'},
+    {'title': 'Dermatologist', 'description': 'Description of previous visit to dermatologist'}
     # Добавьте другие записи о прошлых приемах
 ]
 
 surveys = [
-    {'title': 'Опрос для первичного приема у психиатора', 'description': 'описание'},
-    {'title': 'Опрос для первичного приема у невролога', 'description': 'описание'},
-    {'title': 'Опрос для первичного приема у косметолога', 'description': 'описание'},
-    {'title': 'Опрос для первичного приема у ортопеда', 'description': 'описание'}
+    {'title': 'Survey for first visit to psychiatrist', 'description': 'description'},
+    {'title': 'Survey for first visit to neurologist', 'description': 'description'},
+    {'title': 'Survey for first visit to cosmetologist', 'description': 'description'},
+    {'title': 'Survey for first visit to orthopedist', 'description': 'description'}
     # Добавьте другие записи о прошлых приемах
 ]
 

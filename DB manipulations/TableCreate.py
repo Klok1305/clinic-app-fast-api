@@ -8,9 +8,9 @@ db_file = 'clinic.db'
 if os.path.exists(db_file):
     # Удаляем файл базы данных
     os.remove(db_file)
-    print("База данных успешно удалена.")
+    print("Database removed successfully.")
 else:
-    print("Файл базы данных не найден.")
+    print("Database file not found.")
 
 # Создание подключения к базе данных (если базы данных нет, она будет создана)
 conn = sqlite3.connect(db_file)

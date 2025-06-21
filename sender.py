@@ -39,9 +39,9 @@ for appointment in appointments:
     msg = MIMEMultipart()
     msg['From'] = FROM_EMAIL
     msg['To'] = email
-    msg['Subject'] = 'Напоминание о приеме'
+msg['Subject'] = 'Appointment reminder'
     
-    body = f"Уважаемый пациент,\n\nНапоминаем вам о приеме у {doctor}, который состоится {visit_date}.\n\nС уважением,\nВаша клиника"
+    body = f"Dear patient,\n\nThis is a reminder for your appointment with {doctor} scheduled on {visit_date}.\n\nBest regards,\nYour clinic"
     msg.attach(MIMEText(body, 'plain'))
     
     # Подключение к SMTP серверу и отправка email
@@ -52,9 +52,9 @@ for appointment in appointments:
         text = msg.as_string()
         server.sendmail(FROM_EMAIL, email, text)
         server.quit()
-        print(f"Уведомление отправлено: {email}")
+        print(f"Notification sent: {email}")
     except Exception as e:
-        print(f"Ошибка при отправке уведомления: {e}")
+        print(f"Error sending notification: {e}")
 
 # Для Windows (Task Scheduler):
 # Открыть Task Scheduler.

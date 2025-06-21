@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Вход</title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <style>
         body {
@@ -72,18 +72,18 @@
     </style>
 </head>
 <body>
-    <h2>Вход</h2>
+    <h2>Login</h2>
     {% if error %}
         <p class="error">{{ error }}</p>
     {% endif %}
     <form method="post">
-        <label for="username">Имя пользователя:</label><br>
+        <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br>
-        <label for="password">Пароль:</label><br>
+        <label for="password">Password:</label><br>
         <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Войти">
-        <button type="button" onclick="window.location.href='/register';">Регистрация</button>
+        <input type="submit" value="Login">
+        <button type="button" onclick="window.location.href='/register';">Register</button>
     </form>
-    <a href="/admin-login" class="admin-login">Войти как админ</a>
+    <a href="/admin-login" class="admin-login">Admin login</a>
 </body>
 </html>

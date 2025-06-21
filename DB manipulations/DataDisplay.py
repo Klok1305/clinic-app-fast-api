@@ -7,27 +7,27 @@ cursor = conn.cursor()
 # Выполняем SQL-запрос для просмотра содержимого таблицы appointments
 cursor.execute("SELECT * FROM appointments")
 appointments_data = cursor.fetchall()
-print("Таблица appointments:")
+print("Appointments table:")
 for row in appointments_data:
     print(row)
 
 # Выполняем SQL-запрос для просмотра содержимого таблицы analyses
 cursor.execute("SELECT * FROM analyses")
 analyses_data = cursor.fetchall()
-print("\nТаблица analyses:")
+print("\nAnalyses table:")
 for row in analyses_data:
     print(row)
 
 # Выполняем SQL-запрос для просмотра содержимого таблицы past_appointments
 cursor.execute("SELECT * FROM past_appointments")
 past_appointments_data = cursor.fetchall()
-print("\nТаблица past_appointments:")
+print("\nPast appointments table:")
 for row in past_appointments_data:
     print(row)
 
 cursor.execute("SELECT * FROM surveys")
 analyses_data = cursor.fetchall()
-print("\nТаблица analyses:")
+print("\nSurveys table:")
 for row in analyses_data:
     print(row)
 # Закрываем соединение с базой данных

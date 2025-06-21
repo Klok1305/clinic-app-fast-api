@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Вход для администратора</title>
+    <title>Admin Login</title>
     <meta charset="UTF-8">
     <style>
         body {
@@ -52,18 +52,18 @@
     </style>
 </head>
 <body>
-    <h2>Вход для администратора</h2>
+    <h2>Admin Login</h2>
     {% if error %}
         <p class="error">{{ error }}</p>
     {% endif %}
     <form method="post">
-        <label for="username">Имя пользователя:</label><br>
+        <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br>
-        <label for="password">Пароль:</label><br>
+        <label for="password">Password:</label><br>
         <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Войти">
+        <input type="submit" value="Login">
         <br> <!-- добавлен перевод строки -->
-        <input type="submit" value="Выход" formaction="/logout" class="logout"> <!-- изменена кнопка на input и добавлено formaction -->
+        <input type="submit" value="Logout" formaction="/logout" class="logout"> <!-- изменена кнопка на input и добавлено formaction -->
     </form>
 </body>
 </html>
