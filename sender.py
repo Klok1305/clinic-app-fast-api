@@ -39,7 +39,7 @@ for appointment in appointments:
     msg = MIMEMultipart()
     msg['From'] = FROM_EMAIL
     msg['To'] = email
-msg['Subject'] = 'Appointment reminder'
+    msg['Subject'] = 'Appointment reminder'
     
     body = f"Dear patient,\n\nThis is a reminder for your appointment with {doctor} scheduled on {visit_date}.\n\nBest regards,\nYour clinic"
     msg.attach(MIMEText(body, 'plain'))
@@ -56,10 +56,3 @@ msg['Subject'] = 'Appointment reminder'
     except Exception as e:
         print(f"Error sending notification: {e}")
 
-# Для Windows (Task Scheduler):
-# Открыть Task Scheduler.
-# Создать новую задачу, настроим ее на ежедневное выполнение в определенное время.
-# В качестве действия выберем выполнение программы `python.exe` и укажем путь к вашему скрипту `sender.py`.
-
-# Этот скрипт будет ежедневно проверять базу данных на наличие записей о приемах на следующий день и отправлять соответствующие уведомления по email.
-# Не забудьте заменить параметры SMTP-сервера на актуальные данные вашего почтового провайдера.
