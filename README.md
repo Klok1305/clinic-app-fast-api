@@ -8,7 +8,7 @@ pip install -r requirements.txt
 python "DB manipulations/TableCreate.py"
 python "DB manipulations/DataAdd.py"
 
-uvicorn app:app --reload
+uvicorn app:app --reload or docker-compose up -d
 
 http://127.0.0.1:8000
 
